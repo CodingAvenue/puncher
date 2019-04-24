@@ -1,5 +1,7 @@
 # The Puncher
 
+Hardcode your email address and password in `lib.js`. Replace `TYPE_EMAIL_ADDRESS_HERE` and `TYPE_PASSWORD_HERE` respectively.
+
 ## Requirement
 
  - Latest version of NodeJS
