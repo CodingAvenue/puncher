@@ -19,3 +19,8 @@ npm i
 ```
 npm start
 ```
+
+## Punching
+
+Visit http://localhost:8080/punchin
+
