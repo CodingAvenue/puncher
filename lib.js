@@ -35,7 +35,7 @@ async function cleanup() {
   await fs.remove("./user_data");
 }
 
-export const punchin = async () => {
+const punchin = async () => {
   await cleanup();
 
   const { page, browser } = await startSession();
@@ -59,7 +59,7 @@ export const punchin = async () => {
   browser.close();
 };
 
-export const punchout = async () => {
+const punchout = async () => {
   await cleanup();
 
   const { page, browser } = await startSession();
@@ -76,3 +76,5 @@ export const punchout = async () => {
 
   browser.close();
 };
+
+module.exports = { punchin, punchout }
