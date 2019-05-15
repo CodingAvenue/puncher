@@ -1,6 +1,8 @@
 const puppeteer = require("puppeteer");
 const fs = require("fs-extra");
 
+//TODO: Use dotenv to replace all hardcoded values
+
 async function startSession() {
   const browser = await puppeteer.launch({
     userDataDir: "./user_data"
