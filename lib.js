@@ -15,6 +15,7 @@ async function startSession() {
 
   await page.waitFor("input[name=email_address]");
 
+  // TODO: env variable not working inside $eval
   await page.$eval(
     "input[name=email_address]",
     el => (el.value = EMAIL_ADDRESS)

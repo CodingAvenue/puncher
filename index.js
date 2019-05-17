@@ -25,5 +25,6 @@ app.get("/punchout", async (req, res) => {
 });
 
 // TODO: Add /ispunchedin endpoint
+// TODO: Migrate to TypeScript
 
 app.listen(port, () => console.log(`Listening on ${port}`));
