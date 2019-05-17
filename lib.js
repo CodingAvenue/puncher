@@ -1,7 +1,7 @@
 const puppeteer = require("puppeteer");
 const fs = require("fs-extra");
 
-//TODO: Use dotenv to replace all hardcoded values
+const { EMAIL_ADDRESS, PASSWORD } = process.env
 
 async function startSession() {
   const browser = await puppeteer.launch({
@@ -17,10 +17,10 @@ async function startSession() {
 
   await page.$eval(
     "input[name=email_address]",
-    el => (el.value = "TYPE_EMAIL_ADDRESS_HERE")
+    el => (el.value = EMAIL_ADDRESS)
   );
 
-  await page.$eval("input[name=password]", el => (el.value = "TYPE_PASSWORD_HERE"));
+  await page.$eval("input[name=password]", el => (el.value = PASSWORD));
   await page.click('input[type="submit"]');
   await page.waitForSelector("a.btn");
 

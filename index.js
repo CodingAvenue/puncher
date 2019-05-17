@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const { punchin, punchout } = require("./lib");
 const app = express();
@@ -22,5 +23,7 @@ app.get("/punchout", async (req, res) => {
     res.status(500).send(e.message);
   }
 });
+
+// TODO: Add /ispunchedin endpoint
 
 app.listen(port, () => console.log(`Listening on ${port}`));
