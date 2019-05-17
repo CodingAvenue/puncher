@@ -1,7 +1,7 @@
 const puppeteer = require("puppeteer");
 const fs = require("fs-extra");
 
-const { EMAIL_ADDRESS, PASSWORD } = process.env
+const { EMAIL_ADDRESS, PASSWORD } = process.env;
 
 async function startSession() {
   const browser = await puppeteer.launch({
@@ -26,10 +26,6 @@ async function startSession() {
   await page.waitForSelector("a.btn");
 
   return { page, browser };
-}
-
-async function isStatus(status) {
-  return text === status;
 }
 
 async function cleanup() {
@@ -60,6 +56,22 @@ const punchin = async () => {
   browser.close();
 };
 
+const ispunchedin = async () => {
+  await cleanup();
+
+  const { page, browser } = await startSession();
+
+  const status = await page.evaluate(
+    () => document.querySelector("a.btn").textContent
+  );
+
+  isPunchedIn = status !== "Punch In Now";
+
+  browser.close();
+
+  return isPunchedIn;
+};
+
 const punchout = async () => {
   await cleanup();
 
@@ -78,4 +90,4 @@ const punchout = async () => {
   browser.close();
 };
 
-module.exports = { punchin, punchout }
+module.exports = { punchin, punchout, ispunchedin };
