@@ -32,6 +32,8 @@ async function cleanup() {
   await fs.remove("./user_data");
 }
 
+// TODO: Return boolean instead of throwing error to prevent zombies
+
 const punchin = async () => {
   await cleanup();
 
